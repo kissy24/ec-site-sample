@@ -1,6 +1,6 @@
-# ec-site-sample
+# Electronic Commerce Website Sample
 
-## 0. requirement definition
+## 0. Requirement definition
 
 ### Functions
 
@@ -12,5 +12,5 @@
 ### Technology Stacks
 
 Frontend: Typescript, React, Bun  
-Backend: Go, Gin, PostgreSQL
+Backend: Go, Gin, PostgreSQL  
 Other: Docker
