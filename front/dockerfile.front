@@ -1,0 +1,12 @@
+FROM debian:stable-slim
+
+WORKDIR /app
+
+RUN apt-get -qq update \
+    && apt-get -qq -y install curl zip unzip \
+    && apt-get -qq clean \
+    && rm -rf /var/lib/apt/lists/* 
+
+RUN curl https://bun.sh/install | bash
+ENV BUN_INSTALL="/root/.bun"
+ENV PATH="$BUN_INSTALL/bin:$PATH"
