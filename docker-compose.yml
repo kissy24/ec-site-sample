@@ -1,9 +1,30 @@
 version: '3'
 
 services:
+  db:
+    image: postgres:latest
+    container_name: "db"
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - '9000:9000'
+  server:
+    build:
+      context: ./server
+      dockerfile: dockerfile.server
+    container_name: "server"
+    ports:
+      - '8000:8000'
+    depends_on:
+      - db
+    volumes:
+      - ./server/:/go/src/app
   front:
     build:
-      context: ./front/
+      context: ./front
       dockerfile: dockerfile.front
+    container_name: "front"
     volumes:
-      - ./front:/app
+      - ./front:/usr/src/app
